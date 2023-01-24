@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>weAre</title>
+  <link rel='stylesheet' type='text/css' href='css/bootstrap-4.3.1/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' type='text/css' href='css/weare.css'>
+  <link rel='stylesheet' type='text/css' href='icons/font-awesome.min.css'>
+</head>
+
+<body class="container-fluid d-flex justify-content-center bg-light" style="width: 100vw; opacity: 0;">
+  <!--LANDING PAGE-->
+  <main id="home" class="row  flex-column align-items-center justify-content-between ">
+    <section class=" d-flex justify-content-center landing-top-pic main_top">
+      <div class="d-flex flex-column align-items-center main_top_words">
+        <h2><span class="fa fa-skyatlas"></span>weAre<span class="fa fa-skyatlas"></span></h2>
+        <h3 class="text-center px-3">BRINGING COMMUNITIES TOGETHER</h3>
+        <p class="text-center px-lg-3"> weAre MAKES IT FUN AND EASY TO HELP OUT YOUR COMMUNITY WHILE GETTING HOOKED UP WITH GREAT DEALS</p>
+        <button id="signIn" class="text-center button grow box-shadow" data-toggle="modal" data-target="#myModalSignIn"><div></div><div></div><div></div>SIGN IN</button>
+      </div>
+    </section>
+    <!--LINKS TO OTHER PAGES-->
+    <div class="teasers">
+      <div class="events teaser_section">
+        <a id="" href="#">
+          <p class="events_words eventsLink grow">EVENTS</p>
+        </a>
+      </div>
+      <div class="rewards teaser_section">
+        <a id="" href="#">
+          <p class="rewards_words rewardsLink grow">REWARDS</p>
+        </a>
+      </div>
+      <div class="community teaser_section">
+        <a href="#">
+          <p class="community_words communityLink grow">COMMUNITY</p>
+        </a>
+      </div>
+    </div>
+  </main>
+  <!--Sign In-->
+  <!--SIGN IN ICON-->
+  <img class="dropdown" src="pictures/signin.svg" width=40px id="header_dropdown" data-toggle="modal" data-target="#myModalSignIn">
+  <!--MODAL SIGN IN FORM-->
+  <div class="modal fade" id="myModalSignIn">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content signUpModal">
+        <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+          <form class="form-inline d-flex flex-column align-items-center justify-content-center" action="/action_page.php">
+            <div id="signInForm" class="flex-column">
+              <label class="d-flex flex-column" for="email">Email address:<input type="email" class="form-control" id="email"></label>
+              <label class="d-flex flex-column" for="pwd">Password:<input type="password" class="form-control pt-3" id="password"></label>
+              <p id="wrongSignIn"> INCORRECT EMAIL OR PASSWORD! TRY AGAIN.</p>
+            </div>
+            <div id="newUserForm" class="flex-column">
+              <p class="text-center my-3">SIGN UP AS A:</p>
+              <div class="d-flex justify-content-center mb-3">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio">VOLUNTEER
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio">ORGANIZER
+                  </label>
+                </div>
+              </div>
+              <label class="d-flex flex-column">First Name:<input  type="text" class="form-control" id="firstName"></label>
+              <label class="d-flex flex-column">Last Name:<input  type="text" class="form-control" id="lastName"></label>
+              <label id="organizationSpan" class="d-flex flex-column">Organization:<input  type="text" class="form-control" id="organization"></label>
+              <label class="d-flex flex-column mt-2">Profile Picture: Choose from pictures folder</label> <input type="file" class="form-control d-flex align-tems-center justify-content-center" id="profilePic">
+              <button id="createAccountButton" type="button" class="btn btn-primary mt-3 small-grow">CREATE ACCOUNT</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer d-flex justify-content-around">
+          <button id="signInButton" type="button" class="btn btn-primary small-grow" data-dismiss="modal">SIGN IN</button>
+          <button id="signUpButton" type="button" class="btn btn-primary small-grow">NEW ACCOUNT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="signInFail">
+    <p>WRONG EMAIL OR PASSWORD! Try Again.</p>
+    <button id="closeSignIn" class="btn btn-primary">OKAY</button>
+  </div>
+  <!--PROFILE BAR  SLIDES IN FROM RIGHT SIDE ON CLICK-->
+  <section id="profileBar" class="flex-column justify-content-between">
+    <!--PROFILE HEADER-->
+    <header class="profileHeader d-flex flex-column justify-content-between align-items-center">
+      <h3 id="profileName" class="text-center"></h3>
+      <img id="myPic" src="">
+    </header>
+    <!--MAIN SECTION DYNAMICALLY DISPLAYS SWIPEABLE LIST OF EVENT OR REWARD CARDS WHEN IN MOBILE OR TABLET VIEW-->
+    <main id="mainProfile" class="d-flex">
+      <div id="profileEvents" class="my-2 profPiece">
+        <h5 class="text-center">
+        </h5>
+      </div>
+      <div id="profileNews" class="my-2 profPiece">
+        <h5 class="text-center" style="margin-top: 100px; font-size: 1.8rem;">NEWS</h5>
+        <p class="profile_sections text-center">weAre is hosting its first annual Help Your Community Day. For every point that you earn by volunteering in your community, weAre will match it. Volunteer today and earn 2X on all your points</p>
+      </div>
+      <div id="profileRewards" class="my-2 profPiece">
+        <button type="button" class="btn btn-primary newEventButton " data-toggle="modal" data-target="#addEventForm">
+  Create New Event
+</button>
+      </div>
+    </main>
+    <!--ICON BUTTONS CHANGE MAIN PROFILE SECTION-->
+    <footer class="profileButtons d-flex justify-content-between">
+      <div id="eventsButton" class="profileButton">
+        <p class="text-center my-1">EVENTS</p>
+        <div class="px-4 d-flex justify-content-center fa fa-calendar fa-3x"></div>
+      </div>
+      <div id="newsButton" class="profileButton">
+        <p class="text-center my-1">NEWS</p>
+        <div class="px-4 d-flex justify-content-center fa fa-newspaper-o fa-3x"></div>
+      </div>
+      <div id="rewardsButton" class="profileButton">
+        <p class="text-center my-1">REWARDS</p>
+        <div class="px-4 d-flex justify-content-center fa fa-gift fa-3x"></div>
+      </div>
+    </footer>
+  </section>
+  <!--EVENTS PAGE-->
+  <main id="events" class="events-page flex-column" style="display:none;">
+    <nav class="pageNav mr-5">
+      <p class="homeLink">HOME</p>
+      <p class="rewardsLink">REWARDS</p>
+      <p class="communityLink">COMMUNITY</p>
+      <button id="signIn" class=" text-center button nonMainSignIn" data-toggle="modal" data-target="#myModalSignIn">SIGN IN</button>
+    </nav>
+    <div class="d-flex flex-column align-items-around" style="height: 30vh;">
+      <h4 class="events_header d-flex">
+        <p>E</p>
+        <p>V</p>
+        <p>E</p>
+        <p>N</p>
+        <p>T</p>
+        <p>S</p>
+      </h4>
+      <div id="content" class="d-flex justify-content-center align-items-center">
+        <div id="cat1" class="swipeItem events_popular" style="z-index: -1; position:absolute; opacity:0;">POPULAR</div>
+        <div id="cat2" class="swipeItem events_environment" style="z-index: -1; position:absolute; opacity:0;">ENVIRONMENT</div>
+        <div id="cat3" class="swipeItem events_housing" style="z-index: -1; position:absolute; opacity:0;">HOUSING</div>
+        <div id="cat4" class="swipeItem events_education" style="z-index: -1; position:absolute; opacity:0">EDUCATION</div>
+        <div id="cat5" class="swipeItem events_food" style="z-index: -1; position:absolute; opacity:0">FOOD</div>
+        <div id="cat6" class="swipeItem events_health" style="z-index: -1; position:absolute; opacity:0;">HEALTH</div>
+      </div>
+    </div>
+    <div class="box flex-column">
+      <div id="category_main">
+        <div class="category_head" style="line-height: 2rem">
+          <h1 class="category_title ">Popular</h1>
+          <p class="category_description">Most Viewed Events</p>
+        </div>
+        <nav class="category_list_pop d-flex">
+        </nav>
+      </div>
+    </div>
+  </main>
+  <main id="rewards" class="rewards-page flex-column" style="display:none;">
+    <nav class="pageNav mr-5">
+      <p class="homeLink">HOME</p>
+      <p class="eventsLink">EVENTS</p>
+      <p class="communityLink">COMMUNITY</p>
+      <button id="signIn" class=" text-center button nonMainSignIn" data-toggle="modal" data-target="#myModalSignIn">SIGN IN</button>
+    </nav>
+    <div class="d-flex flex-column align-items-around" style="height: 30vh;">
+      <h4 class="events_header d-flex pt-5" style="font-size: 3.5rem">
+        <p>R</p>
+        <p>E</p>
+        <p>W</p>
+        <p>A</p>
+        <p>R</p>
+        <p>D</p>
+        <p>S</p>
+      </h4>
+    </div>
+    <div class="box d-flex flex-column">
+      <div id="category_mainRewards">
+        <div class="category_head" style="line-height: 2rem">
+          <h1 class="category_title ">Popular</h1>
+          <p class="category_description">Most Viewed Rewards</p>
+        </div>
+        <nav class="category_list_rewards d-flex">
+        </nav>
+      </div>
+    </div>
+  </main>
+  <main id="community" class="rewards-page flex-column" style="display:none;">
+    <nav class="pageNav mr-5">
+      <p class="homeLink">HOME</p>
+      <p class="eventsLink">EVENTS</p>
+      <p class="rewardsLink">REWARDS</p>
+      <button id="signIn" class=" text-center button nonMainSignIn" data-toggle="modal" data-target="#myModalSignIn">SIGN IN</button>
+    </nav>
+    <div class="d-flex flex-column align-items-around" style="height: 30vh;">
+      <h4 class="events_header d-flex pt-5" style="font-size: 2.5rem">
+        <p>C</p>
+        <p>O</p>
+        <p>M</p>
+        <p>M</p>
+        <p>U</p>
+        <p>N</p>
+        <p>I</p>
+        <p>T</p>
+        <p>Y</p>
+      </h4>
+    </div>
+    <div class="box d-flex flex-column">
+      <div id="category_mainRewards">
+        <div class="category_head" style="line-height: 2rem">
+          <h1 class="category_title ">Popular</h1>
+          <p class="category_description">Most Viewed Members</p>
+        </div>
+        <nav class="category_list_rewards d-flex" style="overflow: scroll;">
+          <img src="pictures/4.jpg" class="friendsPic">
+          <img src="pictures/6.jpg" class="friendsPic">
+          <img src="pictures/5.jpg" class="friendsPic">
+          <img src="pictures/7.jpg" class="friendsPic">
+          <img src="pictures/1.jpg" class="friendsPic">
+          <img src="pictures/2.jpg" class="friendsPic">
+          <img src="pictures/3.jpg" class="friendsPic">
+          <img src="pictures/8.jpg" class="friendsPic">
+          <img src="pictures/9.jpg" class="friendsPic">
+          <img src="pictures/1.jpg" class="friendsPic">
+          <img src="pictures/2.jpg" class="friendsPic">
+          <img src="pictures/3.jpg" class="friendsPic">
+          <img src="pictures/4.jpg" class="friendsPic">
+          <img src="pictures/5.jpg" class="friendsPic">
+          <img src="pictures/6.jpg" class="friendsPic">
+          <img src="pictures/7.jpg" class="friendsPic">
+          <img src="pictures/8.jpg" class="friendsPic">
+          <img src="pictures/9.jpg" class="friendsPic">
+        </nav>
+      </div>
+    </div>
+  </main>
+  <!--ADD EVENT FORM-->
+  <div class="modal" id="addEventForm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Event</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="organizerEventForm">
+            <label class="d-flex flex-column">Event Name:<input  type="text" class="form-control" id="eventName"></label>
+            <label class="d-flex flex-column">Location:<input  type="text" class="form-control" id="eventLocation"></label>
+            <label class="d-flex flex-column">Category:<select class="form-control" id="eventCategory" name="eventLocation">
+          <option value="environment">Environment</option>
+          <option value="housing">Housing</option>
+          <option value="education">Education</option>
+          <option value="food">Food</option>
+          <option value="health">Health</option>
+           </select></label>
+            <label class="d-flex flex-column">Picture:</label> <input type="file" class="form-control d-flex align-tems-center justify-content-center" id="eventPic">
+            <label class="d-flex flex-column">Description:<input  type="text" class="form-control" id="eventDescription"></label>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id='createEventButton' type="button" class="btn btn-danger small-grow" data-dismiss="modal">Create Event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="css/bootstrap-4.3.1/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/anime.js"></script>
+  <script type="text/javascript" src="js/weare.js"></script>
+  <script type="text/javascript" src="js/events.js"></script>
+  <script type="text/javascript" src="js/rewards.js"></script>
+  <script type="text/javascript" src="js/swipeLive.js"></script>
+
+</body>
+
+</html>

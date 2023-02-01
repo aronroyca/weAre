@@ -178,7 +178,7 @@
 .dropdown {
   position: fixed;
   margin-top: 2%;
-  margin-left: -40%;
+  margin-left: 80%;
   z-index: 5;
   position: fixed;
   margin-right: 50px;
@@ -597,8 +597,8 @@
   }
   
   .dropdown {
-    margin-top: 8.5%;
-    margin-left: -40%;
+    margin-top: 15%;
+    margin-left: 80%;
     clip-path: polygon(100% 0%, 100% 80%, 0% 100%, 0% 0%);
   }
   
